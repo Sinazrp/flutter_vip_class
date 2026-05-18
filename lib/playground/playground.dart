@@ -1,4 +1,5 @@
 class Task {
+  //instance level Field
   final String title;
   final String description;
   final bool isCompleted;
@@ -6,6 +7,10 @@ class Task {
   final DateTime? completedAt;
   final DateTime? dueDate;
   final int _priority;
+
+  // Class Level Field
+  static const String hint =
+      " this is just a test field to show class Level fields ";
 
   // 1 Task(this.title, this.description, this.isCompleted, this.createdAt);
 
@@ -109,6 +114,8 @@ void main() {
   print(urgentTask.data);
   print(urgentTask.isOverDue);
   print(tasks);
+
+  print(Task.hint);
 
   for (var task in tasks) {
     print(task.title);
