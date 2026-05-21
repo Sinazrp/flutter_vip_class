@@ -1,3 +1,5 @@
+import 'package:flutter_vip_class/playground/work_task.dart';
+
 class Task {
   //instance level Field
   final String title;
@@ -6,13 +8,10 @@ class Task {
   final DateTime createdAt;
   final DateTime? completedAt;
   final DateTime? dueDate;
-  final int _priority;
+  final int
+  _priority; // encapulated field (private field) that can only be accessed within the class
 
-  // Class Level Field
-  static const String hint =
-      " this is just a test field to show class Level fields ";
-
-  // 1 Task(this.title, this.description, this.isCompleted, this.createdAt);
+  // a Task(this.title, this.description, this.isCompleted, this.createdAt);
 
   const Task({
     required this.title,
@@ -23,7 +22,29 @@ class Task {
     this.dueDate,
     int priority = 0,
   }) : _priority = priority;
-
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  // Class Level Field
+  static const String hint =
+      " this is just a test field to show class Level fields ";
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   // named constructor
   Task.urgent({required this.description})
     : isCompleted = false,
@@ -32,7 +53,16 @@ class Task {
       dueDate = DateTime.now().add(const Duration(days: 1)),
       _priority = 1,
       title = "urgent Task";
-
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   // copy with
   Task copyWith({
     String? title,
@@ -52,18 +82,76 @@ class Task {
     );
   }
 
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  // a getter that get data from the task and return a string
   String get data {
     return "Task Name is : $title and description is : $description, completed at : $completedAt";
   }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
+  // overriding toString method to print the task details when we print the task object
   @override
   String toString() {
     return "Task Name is : $title and description is : $description, completed at : $completedAt";
   }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
+  // a getter that check if the task is overdue or not
   bool get isOverDue {
     return dueDate!.isBefore(DateTime.now());
   }
+  //! practice : implement it with arrow Operator
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  // a getter to get the priority of the task
+  int get priority => _priority;
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   List<Task> getFakeTaskList() {
     return [
@@ -84,6 +172,8 @@ class Task {
       ),
     ];
   }
+
+  //! practice : implement it with arrow Operator and get
 }
 
 void main() {
@@ -93,6 +183,7 @@ void main() {
   //   false,
   //   DateTime.now(),
   // );
+
   Task task_1 = Task(
     // isCompleted: true,
     description: "learn constructor",
@@ -100,7 +191,6 @@ void main() {
     createdAt: DateTime.now(),
   );
 
-  // task_1.title = "edited"; // error because title is final
   Task urgentTask = Task.urgent(description: 'Learn named constructor');
 
   task_1 = task_1.copyWith(title: "edited");
@@ -113,11 +203,22 @@ void main() {
 
   print(urgentTask.data);
   print(urgentTask.isOverDue);
+  print(urgentTask.toString());
   print(tasks);
 
   print(Task.hint);
 
   for (var task in tasks) {
-    print(task.title);
+    print(task._priority);
+    //why we can access the private field
   }
+
+  WorkTask workTask = WorkTask(
+    title: 'Defend',
+    createdAt: DateTime.now(),
+    projectCode: 'delta',
+  );
+  workTask.shareTask('defend');
+
+  // ilia should create a list of base tasks
 }
