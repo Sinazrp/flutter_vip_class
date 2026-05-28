@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vip_class/ui/features/tasks/widgets/task_card.dart';
 import '../../../core/Routes/app_routes.dart';
 import '../../../../domain/models/profile.dart';
 import '../../../../domain/models/todo_task.dart';
@@ -143,33 +144,11 @@ class _TaskListPageState extends State<TaskListPage> {
                       separatorBuilder: (_, __) => const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final task = _taskViewModel.activeTasks[index];
-                        return Card(
-                          elevation: 2,
-                          child: ListTile(
-                            title: Text(task.title),
-                            subtitle: Text(task.description),
-                            trailing: Wrap(
-                              spacing: 8,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.check,
-                                    color: Colors.green,
-                                  ),
-                                  onPressed: () => _markDone(task),
-                                  tooltip: 'Mark done',
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () => _deleteTask(task),
-                                  tooltip: 'Delete task',
-                                ),
-                              ],
-                            ),
-                          ),
+                        return TaskCard(
+                          title: task.title,
+                          description: task.description,
+                          markDone: () => _markDone(task),
+                          deleteTask: () => _deleteTask(task),
                         );
                       },
                     ),
