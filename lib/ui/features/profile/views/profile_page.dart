@@ -110,6 +110,29 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 const SizedBox(height: 24),
+
+                // Added two more widgets
+                TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: "Birth YYYY/MM/DD",
+                    border: OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.datetime,
+                  validator: FormValidators.validateDate,
+                ),
+
+                const SizedBox(height: 24),
+
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "National code",
+                    border: OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.number,
+                  validator: FormValidators.validateNationalCode,
+                ),
+
+                const SizedBox(height: 24),
                 //CustomButton(submitProfile: submitProfile),
                 ElevatedButton(
                   onPressed: submitProfile,
