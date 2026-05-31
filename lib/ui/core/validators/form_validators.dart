@@ -102,6 +102,35 @@ class FormValidators {
     return null;
   }
 
+  // Added two more validator
+  static String? validateDate(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "Please return your birth";
+    }
+
+    final dateRegex = RegExp(r"^\d{4}\/\d{1,2}\/\d{1,2}$");
+
+    if (!dateRegex.hasMatch(value.trim())) {
+      return "Please enter a valid date";
+    }
+
+    return null;
+  }
+
+  static String? validateNationalCode(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "Please enter your national code";
+    }
+
+    final nationalCodeRegex = RegExp(r"\d{10}");
+
+    if (!nationalCodeRegex.hasMatch(value)) {
+      return "Please enter a valid national code";
+    }
+
+    return null;
+  }
+
   // Generic non-empty validator
   static String? validateRequired(String? value, String fieldName) {
     if (value == null || value.trim().isEmpty) {
