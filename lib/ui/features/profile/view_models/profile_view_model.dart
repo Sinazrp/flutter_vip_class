@@ -1,36 +1,33 @@
 import 'package:flutter_vip_class/domain/models/profile.dart';
 
 class ProfileViewModel {
-  String name = '';
-  int age = 0;
-  String email = '';
-  String phoneNumber = '';
-  String password = '';
+  Profile _profile = const Profile(name: '', age: 0);
 
-
+  Profile get profile => _profile;
 
   void updateName(String newName) {
-    name = newName;
+    _profile = _profile.copyWith(name: newName);
   }
 
   void updateAge(String ageString) {
     final parsed = int.tryParse(ageString);
-    age = parsed != null && parsed > 0 ? parsed : 0;
+    final age = parsed != null && parsed > 0 ? parsed : 0;
+    _profile = _profile.copyWith(age: age);
   }
 
   void updateEmail(String newEmail) {
-    email = newEmail;
+    _profile = _profile.copyWith(email: newEmail);
   }
 
   void updatePhoneNumber(String newPhoneNumber) {
-    phoneNumber = newPhoneNumber;
+    _profile = _profile.copyWith(phoneNumber: newPhoneNumber);
   }
 
   void updatePassword(String newPassword) {
-    password = newPassword;
+    _profile = _profile.copyWith(password: newPassword);
   }
 
   Profile buildProfile() {
-    return Profile(name: name.trim(), age: age);
+    return _profile.copyWith(name: _profile.name.trim());
   }
 }

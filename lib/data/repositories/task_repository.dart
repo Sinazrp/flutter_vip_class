@@ -1,11 +1,11 @@
-import '../models/todo_task_model.dart';
+import '../../domain/models/todo_task.dart';
 
 class TaskRepository {
-  final List<TodoTaskModel> _tasks = [];
+  final List<TodoTask> _tasks = [];
 
-  List<TodoTaskModel> getAll() => List.unmodifiable(_tasks);
+  List<TodoTask> getAll() => List.unmodifiable(_tasks);
 
-  void addTask(TodoTaskModel task) {
+  void addTask(TodoTask task) {
     _tasks.add(task);
   }
 }

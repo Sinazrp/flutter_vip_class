@@ -26,4 +26,35 @@ class TodoTask {
       status: status ?? this.status,
     );
   }
+
+  factory TodoTask.fromMap(Map<String, dynamic> map) {
+    final statusValue = map['status'] as String? ?? 'active';
+    TodoTaskStatus status;
+    switch (statusValue) {
+      case 'done':
+        status = TodoTaskStatus.done;
+        break;
+      case 'deleted':
+        status = TodoTaskStatus.deleted;
+        break;
+      default:
+        status = TodoTaskStatus.active;
+    }
+
+    return TodoTask(
+      id: map['id'] as String? ?? '',
+      title: map['title'] as String? ?? '',
+      description: map['description'] as String? ?? '',
+      status: status,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'status': status.name,
+    };
+  }
 }

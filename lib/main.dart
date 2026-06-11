@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vip_class/ui/features/profile/views/profile_page.dart';
-import 'ui/core/Routes/app_routes.dart';
-import 'ui/core/Routes/app_router.dart';
 import 'ui/core/theme/app_theme.dart';
 
 void main() {

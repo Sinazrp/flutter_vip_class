@@ -20,23 +20,11 @@ class _TaskListPageState extends State<TaskListPage> {
   Profile? profile;
 
   void _addTask() {
-    final title = _taskTitleController.text.trim();
-    final description = _taskDescriptionController.text.trim();
-
-    if (title.isEmpty) {
-      return;
-    }
-
-    final newTask = TodoTask(
-      id: DateTime.now().microsecondsSinceEpoch.toString(),
-      title: title,
-      description: description.isEmpty ? 'No description' : description,
-    );
-
     setState(() {
-      _taskViewModel.addTask(newTask);
-      _taskTitleController.clear();
-      _taskDescriptionController.clear();
+      if (_taskViewModel.addTask()) {
+        _taskTitleController.clear();
+        _taskDescriptionController.clear();
+      }
     });
   }
 
@@ -120,6 +108,7 @@ class _TaskListPageState extends State<TaskListPage> {
                 labelText: 'Task title',
                 border: OutlineInputBorder(),
               ),
+              onChanged: _taskViewModel.updateTitle,
             ),
             const SizedBox(height: 12),
             TextField(
@@ -130,6 +119,7 @@ class _TaskListPageState extends State<TaskListPage> {
               ),
               minLines: 1,
               maxLines: 3,
+              onChanged: _taskViewModel.updateDescription,
             ),
             const SizedBox(height: 12),
             ElevatedButton(onPressed: _addTask, child: const Text('Add task')),
