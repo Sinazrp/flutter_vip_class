@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vip_class/ui/core/validators/form_validators.dart';
 import 'package:flutter_vip_class/ui/features/profile/view_models/profile_view_model.dart';
 import 'package:flutter_vip_class/ui/features/simplepage.dart';
+import '../../../core/Routes/app_routes.dart';
 import '../../../core/theme/app_text_styles.dart';
 
 class ProfilePage extends StatefulWidget {

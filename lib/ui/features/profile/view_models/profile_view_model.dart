@@ -41,12 +41,12 @@ class ProfileViewModel {
 
     form.save();
 
-    Future.delayed(const Duration(milliseconds: 300), () {
+    
       Navigator.pushNamed(
         context,
         AppRoutes.tasks,
         arguments:buildProfile(),
       );
-    });
+    
   }
 }
