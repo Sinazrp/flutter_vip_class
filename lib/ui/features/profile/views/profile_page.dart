@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vip_class/ui/core/validators/form_validators.dart';
 import 'package:flutter_vip_class/ui/features/profile/view_models/profile_view_model.dart';
-import '../../../core/Routes/app_routes.dart';
+import 'package:flutter_vip_class/ui/features/simplepage.dart';
 import '../../../core/theme/app_text_styles.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,22 +15,6 @@ class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
   final _viewModel = ProfileViewModel();
 
-  void submitProfile() {
-    final form = _formKey.currentState;
-    if (form == null || !form.validate()) {
-      return;
-    }
-
-    form.save();
-
-    Future.delayed(const Duration(milliseconds: 300), () {
-      Navigator.pushNamed(
-        context,
-        AppRoutes.tasks,
-        arguments: _viewModel.buildProfile(),
-      );
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,9 +96,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(height: 24),
                 //CustomButton(submitProfile: submitProfile),
                 ElevatedButton(
-                  onPressed: submitProfile,
+                  onPressed: (){
+                    _viewModel.submitProfile(context,_formKey);
+                  },
                   child: const Text('Continue to Tasks'),
                 ),
+                  const SizedBox(height: 20),
+                 ElevatedButton(
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const Simplepage(name: 'sina')));},
+                
+                  child: const Text('go to simple page'),
+                ),
+                
               ],
             ),
           ),
@@ -123,64 +116,3 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-
-// class ProfilePage extends StatelessWidget {
-//   const ProfilePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Profile Page'),
-//         actions: [
-//           Padding(
-//             padding: const EdgeInsets.only(right: 8.0),
-//             child: Icon(Icons.account_circle),
-//           ),
-//           Padding(
-//             padding: const EdgeInsets.only(right: 8, left: 30),
-//             child: Icon(Icons.delete),
-//           ),
-//         ],
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-//         child: SingleChildScrollView(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.start,
-
-//             //crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               SizedBox(height: 20),
-//               Text(
-//                 'Please enter your profile information first.',
-//                 style: TextStyle(
-//                   fontSize: 16,
-//                   fontWeight: FontWeight.w700,
-//                   color: Colors.red,
-//                 ),
-//               ),
-//               SizedBox(height: 40),
-//               Container(
-//                 height: 1500,
-//                 width: double.infinity,
-
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(12),
-//                   color: Colors.grey[300],
-//                 ),
-//               ),
-//               Text(
-//                 'This is a placeholder for the profile form. You can replace this with your actual form fields.',
-//                 style: TextStyle(fontSize: 14, color: Colors.black54),
-//               ),
-//               SizedBox(height: 50),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

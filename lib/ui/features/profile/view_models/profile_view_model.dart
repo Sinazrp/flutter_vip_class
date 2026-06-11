@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_vip_class/domain/models/profile.dart';
+import 'package:flutter_vip_class/ui/core/Routes/app_routes.dart';
 
 class ProfileViewModel {
   Profile _profile = const Profile(name: '', age: 0);
@@ -29,5 +31,22 @@ class ProfileViewModel {
 
   Profile buildProfile() {
     return _profile.copyWith(name: _profile.name.trim());
+  }
+
+   void submitProfile(BuildContext context ,GlobalKey<FormState>key ) {
+    final form = key.currentState;
+    if (form == null || !form.validate()) {
+      return;
+    }
+
+    form.save();
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      Navigator.pushNamed(
+        context,
+        AppRoutes.tasks,
+        arguments:buildProfile(),
+      );
+    });
   }
 }
