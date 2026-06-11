@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Simplepage extends StatelessWidget {
-  const Simplepage({super.key, required this.name});
-  final String name;
-
+  const Simplepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(child: Text('Sina'));
   }
 }

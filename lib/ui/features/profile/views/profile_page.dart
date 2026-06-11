@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vip_class/ui/core/validators/form_validators.dart';
 import 'package:flutter_vip_class/ui/features/profile/view_models/profile_view_model.dart';
 import 'package:flutter_vip_class/ui/features/simplepage.dart';
-import '../../../core/Routes/app_routes.dart';
 import '../../../core/theme/app_text_styles.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,7 +14,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final _formKey = GlobalKey<FormState>();
   final _viewModel = ProfileViewModel();
-
 
   @override
   Widget build(BuildContext context) {
@@ -97,18 +95,24 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(height: 24),
                 //CustomButton(submitProfile: submitProfile),
                 ElevatedButton(
-                  onPressed: (){
-                    _viewModel.submitProfile(context,_formKey);
+                  onPressed: () {
+                    _viewModel.submitProfile(context, _formKey);
                   },
                   child: const Text('Continue to Tasks'),
                 ),
-                  const SizedBox(height: 20),
-                 ElevatedButton(
-                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> const Simplepage(name: 'sina')));},
-                
-                  child: const Text('go to simple page'),
-                ),
-                
+                const SizedBox(height: 20),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => const Simplepage(),
+                //       ),
+                //     );
+                //   },
+
+                //   child: const Text('go to simple page'),
+                // ),
               ],
             ),
           ),

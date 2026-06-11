@@ -33,20 +33,14 @@ class ProfileViewModel {
     return _profile.copyWith(name: _profile.name.trim());
   }
 
-   void submitProfile(BuildContext context ,GlobalKey<FormState>key ) {
-    final form = key.currentState;
-    if (form == null || !form.validate()) {
+  void submitProfile(BuildContext context, GlobalKey<FormState> key) {
+    final formState = key.currentState;
+    if (formState == null || !formState.validate()) {
       return;
     }
 
-    form.save();
+    formState.save();
 
-    
-      Navigator.pushNamed(
-        context,
-        AppRoutes.tasks,
-        arguments:buildProfile(),
-      );
-    
+    Navigator.pushNamed(context, AppRoutes.tasks, arguments: buildProfile());
   }
 }
