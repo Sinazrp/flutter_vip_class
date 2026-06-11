@@ -50,6 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: AppTextStyles.headlineMedium,
                 ),
                 const SizedBox(height: 24),
+
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Name',
@@ -123,3 +124,64 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+
+// class ProfilePage extends StatelessWidget {
+//   const ProfilePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Profile Page'),
+//         actions: [
+//           Padding(
+//             padding: const EdgeInsets.only(right: 8.0),
+//             child: Icon(Icons.account_circle),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.only(right: 8, left: 30),
+//             child: Icon(Icons.delete),
+//           ),
+//         ],
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.symmetric(horizontal: 24.0),
+//         child: SingleChildScrollView(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.start,
+
+//             //crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               SizedBox(height: 20),
+//               Text(
+//                 'Please enter your profile information first.',
+//                 style: TextStyle(
+//                   fontSize: 16,
+//                   fontWeight: FontWeight.w700,
+//                   color: Colors.red,
+//                 ),
+//               ),
+//               SizedBox(height: 40),
+//               Container(
+//                 height: 1500,
+//                 width: double.infinity,
+
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(12),
+//                   color: Colors.grey[300],
+//                 ),
+//               ),
+//               Text(
+//                 'This is a placeholder for the profile form. You can replace this with your actual form fields.',
+//                 style: TextStyle(fontSize: 14, color: Colors.black54),
+//               ),
+//               SizedBox(height: 50),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

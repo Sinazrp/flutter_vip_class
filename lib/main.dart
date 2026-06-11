@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vip_class/ui/features/profile/views/profile_page.dart';
 import 'ui/core/Routes/app_routes.dart';
 import 'ui/core/Routes/app_router.dart';
 import 'ui/core/theme/app_theme.dart';
@@ -15,9 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo Teaching App',
       theme: AppTheme.lightTheme,
-      initialRoute: AppRoutes.profile,
-      routes: AppRouter.routes,
-      onGenerateRoute: AppRouter.onGenerateRoute,
+      // initialRoute: AppRoutes.profile,
+      // routes: AppRouter.routes,
+      // onGenerateRoute: AppRouter.onGenerateRoute,
+      home: ProfilePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

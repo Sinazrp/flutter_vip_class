@@ -22,7 +22,7 @@ void main() {
     file_size: 3800,
   );
 
-  Product pP1 = PhysicalProduct(title: "Labtop", price: 35000000, weight: 2);
+  Product pP1 = PhysicalProduct(title: "Laptop", price: 35000000, weight: 2);
 
   Product pP2 = PhysicalProduct(title: "Book", price: 380000, weight: 0.5);
 
