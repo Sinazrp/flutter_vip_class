@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo Teaching App',
       theme: AppTheme.lightTheme,
-      initialRoute: AppRoutes.profile,
+      initialRoute: AppRoutes.signIn,
       routes: AppRouter.routes,
       onGenerateRoute: AppRouter.onGenerateRoute,
       debugShowCheckedModeBanner: false,

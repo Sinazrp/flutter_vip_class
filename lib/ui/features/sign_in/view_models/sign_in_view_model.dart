@@ -7,8 +7,6 @@ class ProfileViewModel {
   String phoneNumber = '';
   String password = '';
 
-
-
   void updateName(String newName) {
     name = newName;
   }
@@ -31,6 +29,11 @@ class ProfileViewModel {
   }
 
   Profile buildProfile() {
-    return Profile(name: name.trim(), age: age);
+    return Profile(
+      name: name.trim(),
+      age: age,
+      email: email,
+      phoneNumber: phoneNumber,
+    );
   }
 }

@@ -52,7 +52,9 @@ class _CustomButtonState extends State<CustomButton> {
           borderRadius: BorderRadius.circular(18),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isButtonPressed ? 0.18 : 0.25),
+              color: Colors.black.withValues(
+                alpha: isButtonPressed ? 0.18 : 0.25,
+              ),
               blurRadius: isButtonPressed ? 10 : 18,
               offset: const Offset(0, 8),
             ),

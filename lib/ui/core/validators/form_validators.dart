@@ -122,7 +122,7 @@ class FormValidators {
       return "Please enter your national code";
     }
 
-    final nationalCodeRegex = RegExp(r"\d{10}");
+    final nationalCodeRegex = RegExp(r"^\d{10}$");
 
     if (!nationalCodeRegex.hasMatch(value)) {
       return "Please enter a valid national code";

@@ -2,11 +2,11 @@ import '../../domain/models/todo_task.dart';
 
 class TodoTaskModel extends TodoTask {
   TodoTaskModel({
-    required String id,
-    required String title,
-    required String description,
-    TodoTaskStatus status = TodoTaskStatus.active,
-  }) : super(id: id, title: title, description: description, status: status);
+    required super.id,
+    required super.title,
+    required super.description,
+    super.status,
+  });
 
   factory TodoTaskModel.fromMap(Map<String, dynamic> map) {
     final statusValue = map['status'] as String? ?? 'active';
