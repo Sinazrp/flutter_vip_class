@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vip_class/view/home_screen.dart';
+import 'ui/core/Routes/app_routes.dart';
+import 'ui/core/Routes/app_router.dart';
+import 'ui/core/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +10,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'private class',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-
-      home: const HomeScreen(),
+      title: 'Todo Teaching App',
+      theme: AppTheme.lightTheme,
+      initialRoute: AppRoutes.signIn,
+      routes: AppRouter.routes,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

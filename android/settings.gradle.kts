@@ -11,17 +11,6 @@ pluginManagement {
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
 
     repositories {
-        maven { url = uri("https://maven.devneeds.ir") }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/android/maven2/")
-        }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/maven2/")
-        }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/gradle-plugins/")
-        }
-        maven { url = uri("https://pub-azs.ir/api/mavens/") }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -34,24 +23,6 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.1.0" apply false
 }
 
-dependencyResolutionManagement {
-    repositoriesMode = RepositoriesMode.PREFER_SETTINGS
-    repositories {
-        maven { url = uri("https://maven.devneeds.ir") }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/android/maven2/")
-        }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/maven2/")
-        }
-        maven {
-            url = uri("https://mirror-maven.runflare.com/gradle-plugins/")
-        }
-        maven { url = uri("https://pub-azs.ir/api/mavens/") }
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
+
 
 include(":app")
