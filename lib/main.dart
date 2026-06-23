@@ -15,10 +15,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo Teaching App',
       theme: AppTheme.lightTheme,
+<<<<<<< HEAD
       initialRoute: AppRoutes.profile,
       //routes: AppRouter.routes,
       onGenerateRoute: AppRouter.onGenerateRoute,
       //home: ProfilePage(),
+=======
+      initialRoute: AppRoutes.signIn,
+      routes: AppRouter.routes,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+>>>>>>> 28820f424d9e1491430498071fce6a6d98b27bf6
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vip_class/ui/features/profile/views/profile_page.dart';
 import 'package:flutter_vip_class/ui/features/tasks/widgets/task_card.dart';
 import '../../../core/Routes/app_routes.dart';
 import '../../../../domain/models/profile.dart';
@@ -16,7 +17,6 @@ class _TaskListPageState extends State<TaskListPage> {
   final _taskTitleController = TextEditingController();
   final _taskDescriptionController = TextEditingController();
   final _taskViewModel = TaskViewModel();
-
   Profile? profile;
 
   void _addTask() {
@@ -79,6 +79,23 @@ class _TaskListPageState extends State<TaskListPage> {
             ),
             icon: const Icon(Icons.delete_outline),
             tooltip: 'Deleted tasks',
+          ),
+          IconButton(
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfilePage(),
+                settings: RouteSettings(
+                  arguments: {
+                    'name': profile?.name,
+                    'age': profile?.age.toString(),
+                    'email': profile?.email,
+                    'phoneNumber': profile?.phoneNumber,
+                  },
+                ),
+              ),
+            ),
+            icon: const Icon(Icons.person),
           ),
         ],
       ),

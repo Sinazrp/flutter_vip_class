@@ -1,6 +1,8 @@
 class Profile {
   final String name;
+  final String email;
   final int age;
+<<<<<<< HEAD
   final String email;
   final String phoneNumber;
   final String password;
@@ -48,4 +50,14 @@ class Profile {
       'password': password,
     };
   }
+=======
+  final String phoneNumber;
+
+  Profile({
+    required this.name,
+    required this.age,
+    required this.email,
+    required this.phoneNumber,
+  });
+>>>>>>> 28820f424d9e1491430498071fce6a6d98b27bf6
 }
